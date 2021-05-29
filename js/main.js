@@ -64,8 +64,6 @@ console.log(ageClassification(51));
 
 // #7
 
-
-
 function oddFn(n) {
     var array = [];
     var i = 0
@@ -75,3 +73,27 @@ function oddFn(n) {
       }return array;
 }
 console.log(oddFn(10));
+
+// #8
+
+function mainFunc(a, b, func) {
+return func && typeof func === 'function' ? func(a, b) : false;
+}
+
+function cbRandom(a, b) {
+    return Math.ceil(Math.random() * (a - b) + b);
+}
+
+function cbPow(a, b) {
+    return Math.pow(a, b);
+}
+
+function cbAdd(a, b) {
+    return a + b;
+}
+
+console.log(mainFunc(2, 5, cbRandom)); // целые числа в диапазоне 2..5
+console.log(mainFunc(2, 5, cbPow)); // 32
+console.log(mainFunc(2, 5, cbAdd)); // 7
+console.log(mainFunc(2, 5, 'not a func')); // false
+
